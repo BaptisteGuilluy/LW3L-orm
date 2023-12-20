@@ -21,7 +21,7 @@ app.get("/delete/:id", async function (req, res) {
 
 app.get("/", async function (req, res) {
   const liste_mot = await Mot.loadMany();
-  res.render('Testyourself.ejs', { liste_mot });
+  res.render('Testyourself.ejs', { liste_mot, result: "" });
 });
 
 app.post("/submit", async function (req, res) {
@@ -30,7 +30,7 @@ app.post("/submit", async function (req, res) {
   let result =""
 
   for (i in Mot.nom_francais)
-    for (i in req.body.nom_francais)
+    if (i in req.body.nom_francais)
       test+=1
   if(test=bon)
     result= "good"
@@ -43,6 +43,7 @@ app.post("/redirect", async function (req, res) {
   const mot_liste = await Mot.loadMany();
   res.redirect('/add');
 });
+
 
 app.listen(3000, function(){
   console.log("Server ok");
