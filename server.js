@@ -25,11 +25,11 @@ app.get("/", async function (req, res) {
 });
 
 app.post("/submit", async function (req, res) {
-  let bon = toString(Mot.nom_francais).length
+  let bon = toString(mot.nom_francais).length
   let test = 0
   let result =""
 
-  for (i in Mot.nom_francais)
+  for (i in mot.nom_francais)
     if (i in req.body.nom_francais)
       test+=1
   if(test=bon)
@@ -39,9 +39,9 @@ app.post("/submit", async function (req, res) {
   res.render('Testyourself.ejs',{result});
 });
 
-app.post("/redirect", async function (req, res) {
-  const mot_liste = await Mot.loadMany();
-  res.redirect('/add');
+app.post("/retour", async function (req, res) {
+  const liste_mot = await Mot.loadMany();
+  res.render('listemot.ejs',{liste_mot});
 });
 
 

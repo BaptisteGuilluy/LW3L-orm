@@ -15,11 +15,11 @@
   </tr>
   <% for(mot of liste_mot ) { %>
   <tr>
-    <td><%= Mot.nom_francais %></td>
-    <td><%= Mot.trad %></td>
+    <td><%= mot.nom_francais %></td>
+    <td><%= mot.trad %></td>
     <td></td>
     <td><form action="/delete" method="post">
-      <input type="hidden" name="id_item" value="<%= Mot.id_item %>">
+      <input type="hidden" name="id_item" value="<%= mot.id_item %>">
       <input type="submit" value="delete"/>
     </form></td>
   </tr>
