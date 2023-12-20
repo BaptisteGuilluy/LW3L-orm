@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>duolinecam</title>
+</head>
+<body>
+    <h1>Vocabulary</h1>
+<table> 
+  <tr>
+    <td>word</td>
+    <td>translation</td>
+    <td>affirmatif à</td>
+    <td>action</td>
+  </tr>
+  <% for(mot of liste_mot ) { %>
+  <tr>
+    <td><%= Mot.nom_francais %></td>
+    <td><%= Mot.trad %></td>
+    <td></td>
+    <td><form action="/delete" method="post">
+      <input type="hidden" name="id_item" value="<%= Mot.id_item %>">
+      <input type="submit" value="delete"/>
+    </form></td>
+  </tr>
+  <% } %>
+</table>
+
+<h2>add a new word</h2>
+<p>word :</p>
+<form  action="/add" method="POST">
+  <input name="Mot" placeholder="mot"/>
+  <input name="traduction" placeholder="trad"/>
+  <input type="submit" value="Ajouter un mot"/>
+</form>
+</body>
+</html>
+
+
+
